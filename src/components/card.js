@@ -8,10 +8,10 @@ class Card extends Component {
         return (
             <div className="col" >
                 <div className="card" style={{ width: '18rem', textAlign: 'center' }}>
-                    <img className="card-img-top" src={this.props.immagine} alt="california" />
+                    <img className="card-img-top" src={this.props.card.immagine} alt="california" />
                     <div className="card-body">
-                        <h5 className="card-title">{this.props.nome}</h5>
-                        <p className="card-text">Prezzo: {this.props.prezzo}</p>
+                        <h5 className="card-title">{this.props.card.nome}</h5>
+                        <p className="card-text">Prezzo: {this.props.card.prezzo}</p>
                         <button className="btn btn-outline-danger">Elimina</button>
                     </div>
                 </div>
