@@ -16,6 +16,18 @@ import shrimp from './images/shrimp.png';
 //aggiungo il metodo render
 
 class App extends Component {
+  //definisco lo stato con oggetto card
+  state = {
+    cards: [
+      { id: 0, nome: "California", prezzo: 1.99, immagine: california, quantità: 0 },
+      { id: 1, nome: "dragon", prezzo: 1.99, immagine: dragon, quantità: 0 },
+      { id: 2, nome: "dynamite", prezzo: 1.99, immagine: dynamite, quantità: 0 },
+      { id: 3, nome: "philadelphia", prezzo: 1.99, immagine: philadelphia, quantità: 0 },
+      { id: 4, nome: "rainbow", prezzo: 1.99, immagine: rainbow, quantità: 0 },
+      { id: 5, nome: "shrimp", prezzo: 1.99, immagine: shrimp, quantità: 0 },
+
+    ]
+  }
   render() {
     //Propietà (className/props)
     return (
@@ -26,37 +38,15 @@ class App extends Component {
           <h1>Cosa desideri ordinare?</h1>
           <hr />
           <div className="row">
-            {/* //Passaggio di dati tramite props */}
-            <Card
-              immagine={california}
-              nome="California"
-              prezzo={1.99}
-            />
-            <Card
-              immagine={dragon}
-              nome="dragon"
-              prezzo={0.99}
-            />
-            <Card
-              immagine={dynamite}
-              nome="dynamite"
-              prezzo={5.99}
-            />
-            <Card
-              immagine={philadelphia}
-              nome="philadelphia"
-              prezzo={8.99}
-            />
-            <Card
-              immagine={rainbow}
-              nome="rainbow"
-              prezzo={5.99}
-            />
-            <Card
-              immagine={shrimp}
-              nome="shrimp"
-              prezzo={1.99}
-            />
+            {/* Passaggio di dati tramite props, per ogni oggetto card contenuto nella lista abbiamo assegnato una compontente card */}
+            {this.state.cards.map(card => (
+              <Card
+                key={card.id}
+                nome={card.nome}
+                prezzo={card.prezzo}
+                immagine={card.immagine}
+              />
+            ))}
           </div>
         </div>
       </>
