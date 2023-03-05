@@ -62,7 +62,7 @@ class App extends Component {
       <>
         <Navbar />
         <div className="container">
-          <h1>Cosa desideri ordinare?</h1>
+          <h1 className="my-3">Cosa desideri ordinare?</h1>
           <hr />
           <div className="row">
             {/* Passaggio di dati tramite props, per ogni oggetto card contenuto nella lista abbiamo assegnato una compontente card */}
