@@ -28,6 +28,19 @@ class App extends Component {
 
     ]
   }
+
+  // funzione per l'eliminazione delle card, filtro solo le card che hanno la chiave id diversa dal card id;
+  handleDelete = cardId => {
+    // quando aggiorniamo lo stato di updatedCards non basta scrivere: this.state.cards = updatedCards; perchè quando aggiorniamo lo stato di un componente react non possiamo farlo direttamente ma serve la funzione setState.
+    //1 modo
+    // const updatedCards = this.state.cards.filter(card => card.id !== cardId)
+    // this.setState({ cards: updatedCards })
+    //2 modo, se diamo alla costante lo stesso nome della costante dello state, basterà scrivere il nome (cards in questo caso)
+    const cards = this.state.cards.filter(card => card.id !== cardId)
+    this.setState({ cards });
+  }
+
+
   render() {
     //Propietà (className/props)
     return (
@@ -42,6 +55,8 @@ class App extends Component {
             {this.state.cards.map(card => (
               <Card
                 key={card.id}
+                //passaggio di funzione tramite props. è convenzione iniziare con handle i nomi delle funzioni che risiedono nel componente padre in react, e on quella del figlio
+                onDelete={this.handleDelete}
                 card={card}
               />
             ))}

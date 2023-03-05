@@ -6,13 +6,16 @@ import React, { Component } from 'react';
 class Card extends Component {
     render() {
         return (
-            <div className="col" >
+            <div className="col mb-4" >
                 <div className="card" style={{ width: '18rem', textAlign: 'center' }}>
                     <img className="card-img-top" src={this.props.card.immagine} alt="california" />
                     <div className="card-body">
                         <h5 className="card-title">{this.props.card.nome}</h5>
                         <p className="card-text">Prezzo: {this.props.card.prezzo}</p>
-                        <button className="btn btn-outline-danger">Elimina</button>
+                        {/* Passo la funzione onDelete con la arrow function e gli do come argomento il card.id 
+                        ATTENZIONE: se abbiamo bisogno di passare un'argomento in react, c'è bisono della arrow function in react, mentre se non dobbiamo passare un'argomento, possiamo chiamare la funzione senza arrow function
+                        */}
+                        <button className="btn btn-outline-danger" onClick={() => this.props.onDelete(this.props.card.id)}>Elimina</button>
                     </div>
                 </div>
             </div>
