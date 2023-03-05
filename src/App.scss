@@ -1,3 +1,6 @@
+@use 'styles/_colors.scss'; // assuming a styles directory under src/
+@use '~nprogress/nprogress'; // loading a css file from the nprogress node module
+
 .App {
   text-align: center;
 }
@@ -32,6 +35,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

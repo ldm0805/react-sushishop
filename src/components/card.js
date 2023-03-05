@@ -11,7 +11,7 @@ class Card extends Component {
                     {/* Bottone per aggiungere elementi */}
                     <button className="btn btn-primary" onClick={() => this.props.onIncrement(this.props.card)}>
                         Aggiungi
-                        <span class="badge badge-light">{this.props.card.quantita}</span>
+                        <span className="badge badge-light">{this.props.card.quantita}</span>
                     </button>
                     <img className="card-img-top" src={this.props.card.immagine} alt="california" />
                     <div className="card-body">
