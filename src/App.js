@@ -19,12 +19,12 @@ class App extends Component {
   //definisco lo stato con oggetto card
   state = {
     cards: [
-      { id: 0, nome: "California", prezzo: 1.99, immagine: california, quantità: 0 },
-      { id: 1, nome: "dragon", prezzo: 1.99, immagine: dragon, quantità: 0 },
-      { id: 2, nome: "dynamite", prezzo: 1.99, immagine: dynamite, quantità: 0 },
-      { id: 3, nome: "philadelphia", prezzo: 1.99, immagine: philadelphia, quantità: 0 },
-      { id: 4, nome: "rainbow", prezzo: 1.99, immagine: rainbow, quantità: 0 },
-      { id: 5, nome: "shrimp", prezzo: 1.99, immagine: shrimp, quantità: 0 },
+      { id: 0, nome: "California", prezzo: 1.99, immagine: california, quantita: 0 },
+      { id: 1, nome: "dragon", prezzo: 1.99, immagine: dragon, quantita: 0 },
+      { id: 2, nome: "dynamite", prezzo: 1.99, immagine: dynamite, quantita: 0 },
+      { id: 3, nome: "philadelphia", prezzo: 1.99, immagine: philadelphia, quantita: 0 },
+      { id: 4, nome: "rainbow", prezzo: 1.99, immagine: rainbow, quantita: 0 },
+      { id: 5, nome: "shrimp", prezzo: 1.99, immagine: shrimp, quantita: 0 },
 
     ]
   }
@@ -37,6 +37,20 @@ class App extends Component {
     // this.setState({ cards: updatedCards })
     //2 modo, se diamo alla costante lo stesso nome della costante dello state, basterà scrivere il nome (cards in questo caso)
     const cards = this.state.cards.filter(card => card.id !== cardId)
+    this.setState({ cards });
+  }
+
+  //Questa volta facciamo una funzione passando l'intera card e non solo l'id
+  handleIncrement = card => {
+    //prendo tutto l'oggetto e lo inseriamo nella const cards
+    const cards = [...this.state.cards];
+    // Prendiamo la card dove viene premuto il pulsante tramite indexOf
+    const id = cards.indexOf(card);
+    //sulla nuova lista cards e nella posizione id copiamo la card passata
+    cards[id] = { ...card };
+    //aumentiamo il valore di quantià
+    cards[id].quantita++;
+    //aggiorniamo lo stato
     this.setState({ cards });
   }
 
@@ -57,6 +71,8 @@ class App extends Component {
                 key={card.id}
                 //passaggio di funzione tramite props. è convenzione iniziare con handle i nomi delle funzioni che risiedono nel componente padre in react, e on quella del figlio
                 onDelete={this.handleDelete}
+                onIncrement={this.handleIncrement}
+
                 card={card}
               />
             ))}

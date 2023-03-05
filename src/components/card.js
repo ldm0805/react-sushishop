@@ -8,6 +8,11 @@ class Card extends Component {
         return (
             <div className="col mb-4" >
                 <div className="card" style={{ width: '18rem', textAlign: 'center' }}>
+                    {/* Bottone per aggiungere elementi */}
+                    <button className="btn btn-primary" onClick={() => this.props.onIncrement(this.props.card)}>
+                        Aggiungi
+                        <span class="badge badge-light">{this.props.card.quantita}</span>
+                    </button>
                     <img className="card-img-top" src={this.props.card.immagine} alt="california" />
                     <div className="card-body">
                         <h5 className="card-title">{this.props.card.nome}</h5>
